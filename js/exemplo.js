@@ -31,6 +31,11 @@ var decisionTreePrediction = decisionTree.predict(comic);
 var randomForestPrediction = randomForest.predict(comic);
 
 
+// Displaying predictions
+document.getElementById('testingItem').innerHTML = JSON.stringify(comic, null, 0);
+document.getElementById('decisionTreePrediction').innerHTML = JSON.stringify(decisionTreePrediction, null, 0);
+document.getElementById('randomForestPrediction').innerHTML = JSON.stringify(randomForestPrediction, null, 0);
+
 // Displaying Decision Tree
 document.getElementById('displayTree').innerHTML = treeToHtml(decisionTree.root);
 
