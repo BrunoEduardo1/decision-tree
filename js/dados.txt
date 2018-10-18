@@ -15,3 +15,32 @@ desconhecida,		baixa,		adequada,		acima_35,	 baixo
 	boa,			alta,		nenhuma,		15_35,		moderado
 	boa,			alta,		nenhuma,		acima_35,	 baixo
 	ruim,			alta,		nenhuma,		15_35,		 alto
+
+	/*
+	*Attrs historic, debt, guarantee, revenue, risc
+	- historic (0 - unknown, 1 - bad, 2 - good)
+    - debt     (0 - none,    1 - low, 2 - high)
+    - guarantee(0 - none,    1 - suitable)
+    - revenue  (0 -)
+    - risc     (0 - low,     1 - moderate, 2 - high )
+
+*/
+
+
+	var data = 
+    [
+    {historic: 1,  debt: 0,  guarantee: 1, revenue: 36, risc: 2},
+    {historic: 0,  debt: 2,  guarantee: 0, revenue: 36, risc: 2},
+    {historic: desconhecida,  debt: baixa,  guarantee: nenhuma, revenue: 15_35, risc: moderado},
+    {historic: desconhecida,  debt: baixa,  guarantee: nenhuma, revenue: acima_35, risc: alto},
+    {historic: desconhecida,  debt: baixa,  guarantee: nenhuma, revenue: acima_35, risc: baixo},
+    {historic: desconhecida,  debt: baixa,  guarantee: adequada, revenue: acima_35, risc: baixo},
+    {historic: ruim,  debt: baixa,  guarantee: nenhuma, revenue: 0_15, risc: alto},
+    {historic: ruim,  debt: baixa,  guarantee: adequada, revenue: acima_35, risc: moderado},
+    {historic: boa,  debt: baixa,  guarantee: nenhuma, revenue: acima_35, risc: baixo},
+    {historic: boa,  debt: alta,  guarantee: adequada, revenue: acima_35, risc: baixo},
+    {historic: boa,  debt: alta,  guarantee: nenhuma, revenue: 0_15, risc: alto},
+    {historic: boa,  debt: alta,  guarantee: nenhuma, revenue: 15_35, risc: moderado},
+    {historic: boa,  debt: alta,  guarantee: nenhuma, revenue: acima_35, risc: baixo},
+    {historic: ruim,  debt: alta,  guarantee: nenhuma, revenue: 15_35, risc: alto}
+    ];
