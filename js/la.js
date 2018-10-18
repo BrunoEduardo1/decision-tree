@@ -38,8 +38,8 @@ var data =
     var decisionTree = new dt.DecisionTree(config);
 
     // Testing Decision Tree and Random Forest
-    var caso =  {historic: 1,  debt: 0,  guarantee: 1, revenue: 1500,risc: 2};
+    var caso =  {historic: 2,  debt: 0,  guarantee: 1, revenue: 3500};
 
     var decisionTreePrediction = decisionTree.predict(caso);
 
-    console.log(decisionTree);
+    console.log(decisionTreePrediction);
