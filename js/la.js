@@ -43,3 +43,45 @@ var data =
     var decisionTreePrediction = decisionTree.predict(caso);
 
     console.log(decisionTreePrediction);
+
+
+// Displaying predictions
+document.getElementById('testingItem').innerHTML = JSON.stringify(caso, null, 0);
+document.getElementById('decisionTreePrediction').innerHTML = JSON.stringify(decisionTreePrediction, null, 0);
+document.getElementById('randomForestPrediction').innerHTML = JSON.stringify(randomForestPrediction, null, 0);
+
+// Displaying Decision Tree
+document.getElementById('displayTree').innerHTML = treeToHtml(decisionTree.root);
+
+
+// Recursive (DFS) function for displaying inner structure of decision tree
+function treeToHtml(tree) {
+    // only leafs containing category
+    if (tree.category) {
+        return  ['<ul>',
+                    '<li>',
+                        '<a href="#">',
+                            '<b>', tree.category, '</b>',
+                        '</a>',
+                    '</li>',
+                 '</ul>'].join('');
+    }
+    
+    return  ['<ul>',
+                '<li>',
+                    '<a href="#">',
+                        '<b>', tree.attribute, ' ', tree.predicateName, ' ', tree.pivot, ' ?</b>',
+                    '</a>',
+                    '<ul>',
+                        '<li>',
+                            '<a href="#">yes</a>',
+                            treeToHtml(tree.match),
+                        '</li>',
+                        '<li>', 
+                            '<a href="#">no</a>',
+                            treeToHtml(tree.notMatch),
+                        '</li>',
+                    '</ul>',
+                '</li>',
+             '</ul>'].join('');
+}
