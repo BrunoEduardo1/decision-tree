@@ -10,20 +10,20 @@
 */
 var data = 
     [
-    {historic: 1,  debt: 0,  guarantee: 1, revenue: '<15',      risc: 2},
-    {historic: 0,  debt: 2,  guarantee: 0, revenue: '>15 <35',  risc: 2},
-    {historic: 0,  debt: 1,  guarantee: 0, revenue: '>15 <35',  risc: 1},
-    {historic: 0,  debt: 1,  guarantee: 0, revenue: '>35',      risc: 2},
-    {historic: 0,  debt: 1,  guarantee: 0, revenue: '>35',      risc: 0},
-    {historic: 0,  debt: 1,  guarantee: 1, revenue: '>35',      risc: 0},
-    {historic: 1,  debt: 1,  guarantee: 0, revenue: '<15',      risc: 2},
-    {historic: 1,  debt: 1,  guarantee: 1, revenue: '>35',      risc: 1},
-    {historic: 2,  debt: 1,  guarantee: 0, revenue: '>35',      risc: 0},
-    {historic: 2,  debt: 2,  guarantee: 1, revenue: '>35',      risc: 0},
-    {historic: 2,  debt: 2,  guarantee: 0, revenue: '<15',      risc: 2},
-    {historic: 2,  debt: 2,  guarantee: 0, revenue: '>15 <35',  risc: 1},
-    {historic: 2,  debt: 2,  guarantee: 0, revenue: '>35',      risc: 0},
-    {historic: 1,  debt: 2,  guarantee: 0, revenue: '>15 <35',  risc: 2}
+    {historic: 1,  debt: 0,  guarantee: 1, revenue: 1500,  risc: 2},
+    {historic: 0,  debt: 2,  guarantee: 0, revenue: 2500,  risc: 2},
+    {historic: 0,  debt: 1,  guarantee: 0, revenue: 2500,  risc: 1},
+    {historic: 0,  debt: 1,  guarantee: 0, revenue: 4000,  risc: 2},
+    {historic: 0,  debt: 1,  guarantee: 0, revenue: 4000,  risc: 0},
+    {historic: 0,  debt: 1,  guarantee: 1, revenue: 4000,  risc: 0},
+    {historic: 1,  debt: 1,  guarantee: 0, revenue: 1500,  risc: 2},
+    {historic: 1,  debt: 1,  guarantee: 1, revenue: 4000,  risc: 1},
+    {historic: 2,  debt: 1,  guarantee: 0, revenue: 4000,  risc: 0},
+    {historic: 2,  debt: 2,  guarantee: 1, revenue: 4000,  risc: 0},
+    {historic: 2,  debt: 2,  guarantee: 0, revenue: 1500,  risc: 2},
+    {historic: 2,  debt: 2,  guarantee: 0, revenue: 2500,  risc: 1},
+    {historic: 2,  debt: 2,  guarantee: 0, revenue: 4000,  risc: 0},
+    {historic: 1,  debt: 2,  guarantee: 0, revenue: 2500,  risc: 2}
     ];
 
      // Configuration
@@ -36,5 +36,10 @@ var data =
 
     // Building Decision Tree
     var decisionTree = new dt.DecisionTree(config);
+
+    // Testing Decision Tree and Random Forest
+    var caso =  {historic: 1,  debt: 0,  guarantee: 1, revenue: 1500,risc: 2};
+
+    var decisionTreePrediction = decisionTree.predict(caso);
 
     console.log(decisionTree);
