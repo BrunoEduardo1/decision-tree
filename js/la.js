@@ -44,6 +44,10 @@ var data =
 
     console.log(decisionTreePrediction);
 
+    //Temporary
+    (decisionTreePrediction == 0)? decisionTreePrediction = 'baixo': 
+    (decisionTreePrediction == 1) ? decisionTreePrediction = 'moderado' : decisionTreePrediction = 'Alto' ;
+   
 
 // Displaying predictions
 document.getElementById('testingItem').innerHTML = JSON.stringify(caso, null, 0);
