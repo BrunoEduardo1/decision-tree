@@ -1,37 +1,36 @@
 /*
-	*Attrs historic, debt, guarantee, revenue, risc
-	- historic (0 - unknown, 1 - bad, 2 - good)
-    - debt     (0 - none,    1 - low, 2 - high)
-    - guarantee(0 - none,    1 - suitable)
-    - revenue  (0 -)
-    - risc     (0 - low,     1 - moderate, 2 - high )
+	*Attrs historico, debito, garantia, renda, risco
+	- historico (0 - desconhecido, 1 - ruim, 2 - boa)
+    - debito    (0 - nenhum, 1 - baixo, 2 - alto)
+    - garantia  (0 - nenhum, 1 - aceitavel)
+    - renda     (0 -)
+    - risco     (0 - baixo,  1 - moderado, 2 - alto )
 
 */
 function arvore(his, deb, garan, rend) {
-    console.log('hue');
-//Training set
+    //Training set
     var data = 
     [
-        {historic: 1,  debt: 0,  guarantee: 1, revenue: 1500,  risc: 2},//o risco pode ser string
-        {historic: 0,  debt: 2,  guarantee: 0, revenue: 2500,  risc: 2},
-        {historic: 0,  debt: 1,  guarantee: 0, revenue: 2500,  risc: 1},
-        {historic: 0,  debt: 1,  guarantee: 0, revenue: 4000,  risc: 2},
-        {historic: 0,  debt: 1,  guarantee: 0, revenue: 4000,  risc: 0},
-        {historic: 0,  debt: 1,  guarantee: 1, revenue: 4000,  risc: 0},
-        {historic: 1,  debt: 1,  guarantee: 0, revenue: 1500,  risc: 2},
-        {historic: 1,  debt: 1,  guarantee: 1, revenue: 4000,  risc: 1},
-        {historic: 2,  debt: 1,  guarantee: 0, revenue: 4000,  risc: 0},
-        {historic: 2,  debt: 2,  guarantee: 1, revenue: 4000,  risc: 0},
-        {historic: 2,  debt: 2,  guarantee: 0, revenue: 1500,  risc: 2},
-        {historic: 2,  debt: 2,  guarantee: 0, revenue: 2500,  risc: 1},
-        {historic: 2,  debt: 2,  guarantee: 0, revenue: 4000,  risc: 0},
-        {historic: 1,  debt: 2,  guarantee: 0, revenue: 2500,  risc: 2}
+        {historico: 1,  debito: 0,  garantia: 1, renda: 1500,  risco: 2},//o riscoo pode ser string
+        {historico: 0,  debito: 2,  garantia: 0, renda: 2500,  risco: 2},
+        {historico: 0,  debito: 1,  garantia: 0, renda: 2500,  risco: 1},
+        {historico: 0,  debito: 1,  garantia: 0, renda: 4000,  risco: 2},
+        {historico: 0,  debito: 1,  garantia: 0, renda: 4000,  risco: 0},
+        {historico: 0,  debito: 1,  garantia: 1, renda: 4000,  risco: 0},
+        {historico: 1,  debito: 1,  garantia: 0, renda: 1500,  risco: 2},
+        {historico: 1,  debito: 1,  garantia: 1, renda: 4000,  risco: 1},
+        {historico: 2,  debito: 1,  garantia: 0, renda: 4000,  risco: 0},
+        {historico: 2,  debito: 2,  garantia: 1, renda: 4000,  risco: 0},
+        {historico: 2,  debito: 2,  garantia: 0, renda: 1500,  risco: 2},
+        {historico: 2,  debito: 2,  garantia: 0, renda: 2500,  risco: 1},
+        {historico: 2,  debito: 2,  garantia: 0, renda: 4000,  risco: 0},
+        {historico: 1,  debito: 2,  garantia: 0, renda: 2500,  risco: 2}
     ];
     
      // Configuration
     var config = {
         trainingSet: data, 
-        categoryAttr: 'risc', //maybe this one could be risc
+        categoryAttr: 'risco', //Rot
         //ignoredAttributes: ['nop']
     };
 
@@ -39,10 +38,8 @@ function arvore(his, deb, garan, rend) {
     // Building Decision Tree
     var decisionTree = new dt.DecisionTree(config);
 
-    // Testing Decision Tree and Random Forest
-
-    var caso =  {historic: 2,  debt: 0,  guarantee: 1, revenue: 2500};
-    
+    // Testing Decision Tree
+    var caso =  {historico: his,  debito: deb,  garantia: garan, renda: rend};
 
     var decisionTreePrediction = decisionTree.predict(caso);
   
@@ -77,11 +74,11 @@ function arvore(his, deb, garan, rend) {
                         '</a>',
                         '<ul>',
                             '<li>',
-                                '<a href="#">yes</a>',
+                                '<a href="#">sim</a>',
                                 treeToHtml(tree.match),
                             '</li>',
                             '<li>', 
-                                '<a href="#">no</a>',
+                                '<a href="#">não</a>',
                                 treeToHtml(tree.notMatch),
                             '</li>',
                         '</ul>',
@@ -91,7 +88,6 @@ function arvore(his, deb, garan, rend) {
 }
 
 
-$('#renda').keyup(function () {
-    arvore(1,1,1,$('#renda').val());
-    
+$('#test').on('click',function () {
+    arvore($('#hist').val(),$('#deb').val(),$('#garan').val(),$('#renda').val());
 });
