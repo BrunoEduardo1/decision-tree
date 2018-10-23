@@ -7,11 +7,13 @@
     - risco     (0 - baixo,  1 - moderado, 2 - alto )
 
 */
+
 function arvore(his, deb, garan, rend) {
+    
     //Training set
     var data = 
     [
-        {historico: 1,  debito: 0,  garantia: 1, renda: 1500,  risco: 2},//o riscoo pode ser string
+        {historico: 1,  debito: 0,  garantia: 1, renda: 1500,  risco: 2},
         {historico: 0,  debito: 2,  garantia: 0, renda: 2500,  risco: 2},
         {historico: 0,  debito: 1,  garantia: 0, renda: 2500,  risco: 1},
         {historico: 0,  debito: 1,  garantia: 0, renda: 4000,  risco: 2},
@@ -26,6 +28,7 @@ function arvore(his, deb, garan, rend) {
         {historico: 2,  debito: 2,  garantia: 0, renda: 4000,  risco: 0},
         {historico: 1,  debito: 2,  garantia: 0, renda: 2500,  risco: 2}
     ];
+
     
      // Configuration
     var config = {
@@ -45,10 +48,17 @@ function arvore(his, deb, garan, rend) {
   
     var resultado = ['baixo','moderado','Alto'];
 
-
     // Displaying predictions
     document.getElementById('testingItem').innerHTML = JSON.stringify(caso, null, 0);
-    document.getElementById('decisionTreePrediction').innerHTML = JSON.stringify(resultado[decisionTreePrediction], null, 0);
+    document.getElementById('decisionTreePrediction').innerHTML = 'Risco: '+JSON.stringify(resultado[decisionTreePrediction], null, 0);
+
+    //caso.risco = parseInt(decisionTreePrediction);
+    
+    //Adicionar a coleção
+    //data.push(caso);
+
+    //console.log(data);
+
 
     // Displaying Decision Tree
     document.getElementById('displayTree').innerHTML = treeToHtml(decisionTree.root);
@@ -89,5 +99,9 @@ function arvore(his, deb, garan, rend) {
 
 
 $('#test').on('click',function () {
-    arvore($('#hist').val(),$('#deb').val(),$('#garan').val(),$('#renda').val());
+    var historico = parseInt($('#hist').val());
+    var deb       = parseInt($('#deb').val());
+    var garan     = parseInt($('#garan').val());
+    var renda     = parseInt($('#renda').val());
+    arvore(historico,deb,garan,renda);
 });
