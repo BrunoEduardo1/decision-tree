@@ -9,7 +9,7 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row p-4">
-				<div class="col-4 card p-3">
+				<div class="col-4 card p-3 my-auto">
 					<div class="row">
 						<div class="col-6">
 							<label>Historico</label>
@@ -41,21 +41,23 @@
 						<div class="col-12 text-center mt-2">
 							<button class="btn btn-sm btn-primary" id="test">Verificar</button>
 						</div>
+						<div class="col">
+							<b>Caso:</b>
+								<div id="testingItem"></div>
+							<br/>
+							<b>Previsão da árvore:</b>
+								<div id="decisionTreePrediction"></div>
+							<br/>
+						</div>			
 					</div>
-				</div> <!--col form -->
-			</div>
-			<b>Caso:</b>
-				<div id="testingItem"></div>
-			<br/>
-			<b>Previsão da árvore:</b>
-				<div id="decisionTreePrediction"></div>
-			<br/>
-				<b>Árvore de decisão:</b>
-			<br/>
-			<div class="row">
+				</div> <!--col form -->	
 				<div class="col">
 					<div class="tree" id="displayTree" style="margin-left: 25%;"></div>
 				</div>
+			</div>
+			
+			<div class="row">
+				
 			</div>
 			
 		</div>
