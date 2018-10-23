@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Exemplo</title>
+	<meta charset="UTF-8"> 
+	<title>Árvore</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 	<body>
-		<b>Case:</b>
-			<div id="testingItem"></div>
-		<br/>
-		<b>Decision Tree prediction:</b>
-			<div id="decisionTreePrediction"></div>
-		<br/>
-		<b>Random Forest prediction:</b>
-			<div id="randomForestPrediction"></div>
-		<br/>
-			<b>Decision Tree:</b>
-		<br/>
-
-		<div class="tree" id="displayTree"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label>Renda</label>
+						<input type="text" id="renda" class="form-control">
+					</div>
+				</div>
+			</div>
+			<b>Caso:</b>
+				<div id="testingItem"></div>
+			<br/>
+			<b>Previsão da árvore:</b>
+				<div id="decisionTreePrediction"></div>
+			<br/>
+				<b>Árvore de decisão:</b>
+			<br/>
+			<div class="row">
+				<div class="col">
+					<div class="tree" id="displayTree" style="margin-left: 25%;"></div>
+				</div>
+			</div>
+			
+		</div>
 	</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/decision-tree.js"></script>
-	<script type="text/javascript" src="js/la.js"></script>
+	<script type="text/javascript" src="js/la2.js"></script>
 </html>
